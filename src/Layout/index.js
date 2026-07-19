@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./Header";
-import Home from "../Home/Home";
+import Home from "../Home";
+import Study from "../Study";
 import NotFound from "./NotFound";
 
 function Layout() {
@@ -11,6 +12,7 @@ function Layout() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/decks/:deckId/study" element={<Study />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

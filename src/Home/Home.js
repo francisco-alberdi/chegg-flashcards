@@ -4,6 +4,7 @@ import { listDecks } from "../utils/api/index";
 import ViewDeckButton from "./ViewDeckButton";
 import StudyDeckButton from "./StudyDeckButton";
 import DeleteDeckButton from "./DeleteDeckButton";
+import DeckListItem from "./DeckListItem";
 
 function Home() {
   const [decks, setDecks] = useState([]);
@@ -37,26 +38,11 @@ function Home() {
       <CreateDeckButton />
       <div>
         {decks.map((deck) => (
-          <div className="card mb-3" key={deck.id}>
-            <div className="card-body">
-              <div className="d-flex justify-content-between">
-                <h5 className="card-title">{deck.name}</h5>
-                <small className="text-muted">{deck.cards.length} cards</small>
-              </div>
-              <p className="card-text">{deck.description}</p>
-
-              <div className="d-flex justify-content-between">
-                <div className="d-flex">
-                  <ViewDeckButton deckId={deck.id} />
-                  <StudyDeckButton deckId={deck.id} />
-                </div>
-                <DeleteDeckButton
-                  deckId={deck.id}
-                  onClickDeleted={handleDeleteDeck}
-                />
-              </div>
-            </div>
-          </div>
+          <DeckListItem
+            key={deck.id}
+            deck={deck}
+            onDeleteDeck={handleDeleteDeck}
+          />
         ))}
       </div>
     </div>

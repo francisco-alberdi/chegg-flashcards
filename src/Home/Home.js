@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CreateDeckButton from "./CreateDeckButton";
 import { listDecks } from "../utils/api/index";
+import ViewDeckButton from "./ViewDeckButton";
+import StudyDeckButton from "./StudyDeckButton";
 
 function Home() {
   const [decks, setDecks] = useState([]);
@@ -29,7 +31,14 @@ function Home() {
       <CreateDeckButton />
       <div>
         {decks.map((deck) => (
-          <div key={deck.id}>{deck.name}</div>
+          <div key={deck.id}>
+            <h5>{deck.name}</h5>
+            <p>{deck.description}</p>
+            <div>
+              <ViewDeckButton deckId={deck.id} />
+              <StudyDeckButton deckId={deck.id} />
+            </div>
+          </div>
         ))}
       </div>
     </div>

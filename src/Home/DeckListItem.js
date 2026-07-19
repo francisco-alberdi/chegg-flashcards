@@ -18,7 +18,7 @@ function DeckListItem({ deck, onDeleteDeck }) {
             <ViewDeckButton deckId={deck.id} />
             <StudyDeckButton deckId={deck.id} />
           </div>
-          <DeleteDeckButton deckId={deck.id} onClickDeleted={onDeleteDeck} />
+          <DeleteDeckButton deckId={deck.id} onDeleteDeck={onDeleteDeck} />
         </div>
       </div>
     </div>

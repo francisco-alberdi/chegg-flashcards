@@ -15,8 +15,12 @@ function DeckListItem({ deck, onDeleteDeck }) {
 
         <div className="d-flex justify-content-between">
           <div className="d-flex">
-            <ViewDeckButton deckId={deck.id} />
-            <StudyDeckButton deckId={deck.id} />
+            <div className="mr-2">
+              <ViewDeckButton deckId={deck.id} />
+            </div>
+            <div className="mr-2">
+              <StudyDeckButton deckId={deck.id} />
+            </div>
           </div>
           <DeleteDeckButton deckId={deck.id} onDeleteDeck={onDeleteDeck} />
         </div>

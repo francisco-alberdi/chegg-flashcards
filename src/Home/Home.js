@@ -35,7 +35,9 @@ function Home() {
 
   return (
     <div>
-      <CreateDeckButton />
+      <div className="mb-4">
+        <CreateDeckButton />
+      </div>
       <div>
         {decks.map((deck) => (
           <DeckListItem

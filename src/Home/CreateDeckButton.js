@@ -5,7 +5,9 @@ function CreateDeckButton() {
   const navigate = useNavigate();
   return (
     <div>
-      <Link to="/decks/new">Create Deck</Link>
+      <Link to="/decks/new" className="btn btn-primary">
+        + Create Deck
+      </Link>
     </div>
   );
 }

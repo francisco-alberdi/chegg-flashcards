@@ -4,7 +4,7 @@ import { deleteDeck } from "../utils/api/index";
 function DeleteDeckButton({ deckId, onDeleteDeck }) {
   const handleDelete = async () => {
     const resultFromWarning = window.confirm(
-      "Are you sure you want to delete this deck?",
+      "Delete this deck? You will not be able to recover it.",
     );
     if (resultFromWarning) {
       await deleteDeck(deckId);

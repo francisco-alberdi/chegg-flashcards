@@ -1,5 +1,7 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./Header";
+import Home from "./Home";
 import NotFound from "./NotFound";
 
 function Layout() {
@@ -7,8 +9,10 @@ function Layout() {
     <>
       <Header />
       <div className="container">
-        {/* TODO: Implement the screen starting here */}
-        <NotFound />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </>
   );

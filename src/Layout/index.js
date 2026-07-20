@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Home from "../Home";
 import Study from "../Study";
+import CreateDeck from "../CreateDeck";
 import NotFound from "./NotFound";
 
 function Layout() {
@@ -13,6 +14,7 @@ function Layout() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/decks/:deckId/study" element={<Study />} />
+          <Route path="/decks/new" element={<CreateDeck />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

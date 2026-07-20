@@ -40,7 +40,7 @@ function CreateDeck() {
       <NavBar items={navBarItems} />
       <h1>Create Deck</h1>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group mb-4">
           <label className="form-label">Name</label>
           <input
             type="text"
@@ -53,7 +53,7 @@ function CreateDeck() {
             required
           />
         </div>
-        <div>
+        <div className="form-group mb-4">
           <label htmlFor="description" className="form-label">
             Description
           </label>
@@ -68,8 +68,16 @@ function CreateDeck() {
             required
           />
         </div>
-        <button onClick={() => navigate("/")}>Cancel</button>
-        <button>Submit</button>
+        <button
+          type="button"
+          className="btn btn-secondary mr-2"
+          onClick={() => navigate("/")}
+        >
+          Cancel
+        </button>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     </div>
   );

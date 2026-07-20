@@ -40,23 +40,34 @@ function CreateDeck() {
       <NavBar items={navBarItems} />
       <h1>Create Deck</h1>
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <label>Description</label>
-        <textarea
-          id="description"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        />
+        <div>
+          <label className="form-label">Name</label>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            name="name"
+            placeholder="Deck Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="description" className="form-label">
+            Description
+          </label>
+          <textarea
+            className="form-control"
+            id="description"
+            name="description"
+            rows="4"
+            placeholder="Brief description of the deck"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
+        </div>
         <button onClick={() => navigate("/")}>Cancel</button>
         <button>Submit</button>
       </form>

@@ -4,6 +4,7 @@ import Header from "./Header";
 import Home from "../Home";
 import Study from "../Study";
 import CreateDeck from "../CreateDeck";
+import Deck from "../Deck";
 import NotFound from "./NotFound";
 
 function Layout() {
@@ -15,6 +16,7 @@ function Layout() {
           <Route path="/" element={<Home />} />
           <Route path="/decks/:deckId/study" element={<Study />} />
           <Route path="/decks/new" element={<CreateDeck />} />
+          <Route path="/decks/:deckId" element={<Deck />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

@@ -1,13 +1,54 @@
-The Deck screen displays all of the information about a deck.
-The Deck screen has the following features:
-The path to this screen should include the deckId (i.e., /decks/:deckId).
-You must use the readDeck() function from src/utils/api/index.js to load the existing deck.
-There is a breadcrumb navigation bar with a link to home / followed by the name of the deck (e.g., Home/React Router).
-The screen includes the deck name (e.g., "React Router") and deck description (e.g., "React Router is a collection of navigational components that compose declaratively in your application").
-The screen includes Edit, Study, Add Cards, and Delete buttons. Each button takes the user to a different destination, as follows:
-Button ClickedDestinationDescription / NoteEditEdit Deck ScreenStudyStudy screenAdd CardsAdd Card screenDeleteShows a warning message before deleting the deckSee the "Delete Card Prompt" section below
-Each card in the deck:Is listed on the page under the "Cards" heading.
-Shows a question and the answer to the question.
-Has an Edit button that takes the user to the Edit Card screen when clicked.
-Has a Delete button that allows that card to be deleted.
+import React, { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { readDeck } from "../utils/api/index";
+import NavBar from "../components/NavBar";
 
+function Deck() {
+  const { deckId } = useParams();
+  const navigate = useNavigate();
+  const [deck, setDeck] = useState(null);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+
+    async function loadDeck() {
+      try {
+        const response = await readDeck(deckId, abortController.signal);
+        setDeck(response);
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          console.error("Failed to load deck:", error);
+        }
+      }
+    }
+    loadDeck();
+
+    return () => abortController.abort();
+  }, [deckId]);
+
+  if (!deck) {
+    return <p>Loading...</p>;
+  }
+
+  const navBarItems = [{ name: deck.name }];
+
+  return (
+    <div>
+      <NavBar items={navBarItems} />
+
+      <div>
+        <h2>{deck.name}</h2>
+        <p>{deck.description}</p>
+
+        <Link to={`/decks/${deck.id}/edit`}>Edit</Link>
+        <Link to={`/decks/${deck.id}/study`}>Study</Link>
+        <Link to={`/decks/${deck.id}/cards/new`}>Add Cards</Link>
+        <button>Delete</button>
+      </div>
+
+      <h3>Cards</h3>
+    </div>
+  );
+}
+
+export default Deck;

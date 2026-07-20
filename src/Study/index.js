@@ -39,7 +39,7 @@ function Study() {
     <div>
       <NavBar items={navBarItems} />
       <h1>Study: {deck.name}</h1>
-      <Cards cards={deck.cards} />
+      <Cards cards={deck.cards} deckId={deck.id} />
     </div>
   );
 }

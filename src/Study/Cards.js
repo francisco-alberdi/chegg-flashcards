@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Cards({ cards = [] }) {
+function Cards({ cards = [], deckId }) {
   const [cardIndex, setCardIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const currentCard = cards[cardIndex];
   const navigate = useNavigate();
+
+  if (cards.length <= 2) {
+    return (
+      <div className="mt-2">
+        <h4>Not enough cards.</h4>
+        <p>
+          You must have at least 3 cards in this deck to study. There are{" "}
+          {cards.length} cards in this deck.
+        </p>
+        <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">
+          Add Cards
+        </Link>
+      </div>
+    );
+  }
 
   const handleFlip = () => {
     setIsFlipped((prevFlipped) => !prevFlipped);

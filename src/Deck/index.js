@@ -42,7 +42,7 @@ function Deck() {
       <NavBar items={navBarItems} />
 
       <DeckData deck={deck} onDeleteDeck={handleDeleteDeck} />
-      <Cards />
+      <Cards deck={deck} setDeck={setDeck} />
     </div>
   );
 }

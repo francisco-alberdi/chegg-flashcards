@@ -1,7 +1,7 @@
 import React from "react";
 import ViewDeckButton from "./ViewDeckButton";
 import StudyDeckButton from "./StudyDeckButton";
-import DeleteDeckButton from "./DeleteDeckButton";
+import DeleteDeckButton from "../components/DeleteDeckButton";
 
 function DeckListItem({ deck, onDeleteDeck }) {
   return (

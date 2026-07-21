@@ -49,7 +49,9 @@ function Cards({ cards = [], deckId }) {
   return (
     <div>
       <div>
-        <h5>Card {cardIndex + 1}</h5>
+        <h5>
+          Card {cardIndex + 1} of {cards.length}
+        </h5>
         <p>{isFlipped ? currentCard.back : currentCard.front}</p>
         <button className="btn btn-secondary mr-2" onClick={handleFlip}>
           Flip

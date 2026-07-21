@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { readDeck, createCard } from "../utils/api/index";
+import CardForm from "../components/CardForm";
 
 function CreateCard() {
   const { deckId } = useParams();
@@ -71,51 +72,12 @@ function CreateCard() {
 
       <h2>{deck.name}: Add Card</h2>
 
-      <form onSubmit={handleSubmit}>
-        <div className="form-group mb-3">
-          <label htmlFor="front" className="form-label">
-            Front
-          </label>
-          <textarea
-            className="form-control"
-            id="front"
-            name="front"
-            rows="3"
-            placeholder="Front side of card"
-            value={formData.front}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-group mb-3">
-          <label htmlFor="back" className="form-label">
-            Back
-          </label>
-          <textarea
-            className="form-control"
-            id="back"
-            name="back"
-            rows="3"
-            placeholder="Back side of card"
-            value={formData.back}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button
-          type="button"
-          className="btn btn-secondary mr-2"
-          onClick={() => navigate(`/decks/${deckId}`)}
-        >
-          Done
-        </button>
-
-        <button type="submit" className="btn btn-primary">
-          Save
-        </button>
-      </form>
+      <CardForm
+        formData={formData}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        onCancel={() => navigate(`/decks/${deckId}`)}
+      />
     </div>
   );
 }

@@ -42,3 +42,27 @@ Make sure you have the following versions installed:
    ```
    npm test
    ```
+
+## Whammy Log
+
+### Challenge 1: Home Page State Not Updating After Deck Deletion
+
+Clicking the delete button successfully removed a deck from the JSON server API, but the deleted deck remained visible on the home screen until the entire page was manually refreshed. This occured because the DeleteDeckButton child component was calling the onDeleteDeck() without passing the deckId as an argument. To fix this, I updated DeleteDeckButton to pass deckId back up. This allowed the pagw to correctly identify the deleted deck's ID and filter it out of state, updating the UI without a browser refresh.
+
+### Challenge 2: Bootstrap Layout Alignment and Styling Requirements
+
+Matching the visual layout requirements for the entire site across various screens (like the Deck view and Study screen) was a headache... My lack of familiarity with Bootstrap made it hard to understand how to nest standard Bootstrap classes and display the elements correctly. I spent a significant amount of time studying the official Bootstrap documentation online to learn how layout classes work, and even then it is not perfect.
+
+### Post-Submission Reflection
+
+1. Problem-Solving Approach
+   When building this project, I built the application page-by-page, following the requirements doc line by line to ensure I was meeting all the requirements. I started with routing and followed that with a page at a time. My commit history shows this. I tested each page before commiting to ensure that ecerything worked correctly.
+
+2. Key Technical Decision
+   Resuing components the delete button and keepoing components small(ish). This helped me not get overwhelmed by the magnitude of the project.
+
+3. AI Use Disclosure
+   I did not use any AI tools.
+
+4. Area for Future Growth
+   I wish we could further learn about custom React hooks and advanced asynchronous state management.

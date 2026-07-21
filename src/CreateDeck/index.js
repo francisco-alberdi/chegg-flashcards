@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { createDeck } from "../utils/api/index";
+import DeckForm from "../components/DeckForm";
 
 function CreateDeck() {
   const navigate = useNavigate();
@@ -39,46 +40,12 @@ function CreateDeck() {
     <div>
       <NavBar items={navBarItems} />
       <h1>Create Deck</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group mb-4">
-          <label className="form-label">Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            name="name"
-            placeholder="Deck Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group mb-4">
-          <label htmlFor="description" className="form-label">
-            Description
-          </label>
-          <textarea
-            className="form-control"
-            id="description"
-            name="description"
-            rows="4"
-            placeholder="Brief description of the deck"
-            value={formData.description}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button
-          type="button"
-          className="btn btn-secondary mr-2"
-          onClick={() => navigate("/")}
-        >
-          Cancel
-        </button>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      <DeckForm
+        formData={formData}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        onCancel={() => navigate("/")}
+      />
     </div>
   );
 }

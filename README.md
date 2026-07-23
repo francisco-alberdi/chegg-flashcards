@@ -55,14 +55,14 @@ Matching the visual layout requirements for the entire site across various scree
 
 ### Post-Submission Reflection
 
-1. Problem-Solving Approach
-   When building this project, I built the application page-by-page, following the requirements doc line by line to ensure I was meeting all the requirements. I started with routing and followed that with a page at a time. My commit history shows this. I tested each page before commiting to ensure that ecerything worked correctly.
+1. Problem-Solving Approach:
+   1. When building this project, I built the application page-by-page, following the requirements doc line by line to ensure I was meeting all the requirements. I started with routing and followed that with a page at a time. My commit history shows this. I tested each page before commiting to ensure that ecerything worked correctly.
 
-2. Key Technical Decision
-   Resuing components the delete button and keepoing components small(ish). This helped me not get overwhelmed by the magnitude of the project.
+3. Key Technical Decision
+   1. Resuing components the delete button and keepoing components small(ish). This helped me not get overwhelmed by the magnitude of the project.
 
-3. AI Use Disclosure
-   I did not use any AI tools.
+4. AI Use Disclosure
+   1. I did not use any AI tools.
 
-4. Area for Future Growth
-   I wish we could further learn about custom React hooks and advanced asynchronous state management.
+5. Area for Future Growth
+   1. I wish we could further learn about custom React hooks and advanced asynchronous state management.
